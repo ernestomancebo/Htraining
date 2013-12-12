@@ -1,13 +1,13 @@
 package com.ernesto;
 
-import java.util.Set;
+import java.util.SortedSet;
 
 public class Employee {
     private int id;
     private String firstName;
     private String lastName;
     private int salary;
-    private Set certificates;
+    private SortedSet certificates;
 
     public Employee() {
     }
@@ -16,7 +16,7 @@ public class Employee {
         this(fName, lName, salary, null);
     }
 
-    public Employee(String fName, String lName, int salary, Set certificates) {
+    public Employee(String fName, String lName, int salary, SortedSet certificates) {
         this.firstName = fName;
         this.lastName = lName;
         this.salary = salary;
@@ -39,7 +39,7 @@ public class Employee {
         return salary;
     }
 
-    public Set getCertificates() {
+    public SortedSet getCertificates() {
         return certificates;
     }
 
@@ -59,7 +59,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void setCertificates(Set certificates) {
+    public void setCertificates(SortedSet certificates) {
         this.certificates = certificates;
     }
 }

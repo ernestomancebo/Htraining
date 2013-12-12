@@ -4,10 +4,11 @@ import com.ernesto.Certificate;
 import com.ernesto.Employee;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,12 +33,12 @@ public class ManageEmployee {
 
         ManageEmployee ME = new ManageEmployee();
 
-        HashSet set1 = new HashSet();
+        TreeSet set1 = new TreeSet();
         set1.add(new Certificate("MCA"));
         set1.add(new Certificate("MBA"));
         set1.add(new Certificate("PMP"));
 
-        HashSet set2 = new HashSet();
+        TreeSet set2 = new TreeSet();
         set2.add(new Certificate("MA"));
         set2.add(new Certificate("BCA"));
 
@@ -56,7 +57,7 @@ public class ManageEmployee {
         return this.addEmployee(fName, lName, salary, null);
     }
 
-    public Integer addEmployee(String fName, String lName, int salary, Set cert) {
+    public Integer addEmployee(String fName, String lName, int salary, SortedSet cert) {
         Session session = factory.openSession();
         Transaction trans = null;
         Integer employeeID = null;
@@ -89,7 +90,7 @@ public class ManageEmployee {
 
             while (i.hasNext()) {
                 Employee e = (Employee) i.next();
-                Set certificates = e.getCertificates();
+                SortedSet certificates = e.getCertificates();
 
                 System.out.println(
                     "Nombre: " + e.getFirstName() +

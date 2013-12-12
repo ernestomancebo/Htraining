@@ -1,6 +1,6 @@
 package com.ernesto;
 
-class Certificate {
+public class Certificate implements Comparable<Certificate> {
 
     private int id;
     private String name;
@@ -50,5 +50,25 @@ class Certificate {
         int tmp = 0;
         tmp = (id + name).hashCode();
         return tmp;
+    }
+
+    public int compareTo(Certificate that) {
+        final int BEFORE = -1;
+        final int AFTER = 1;
+
+        if (that == null) {
+            return BEFORE;
+        }
+
+        Comparable thisCertificate = this.getName();
+        Comparable thatCertificate = that.getName();
+
+        if (thisCertificate == null) {
+            return AFTER;
+        } else if (thatCertificate == null) {
+            return BEFORE;
+        } else {
+            return thisCertificate.compareTo(thatCertificate);
+        }
     }
 }

@@ -13,3 +13,11 @@ create table CERTIFICATE (
 	employee_id INT default NULL,
 	PRIMARY KEY (id)
 );
+
+create table CERTIFICATE_LIST (
+	id INT NOT NULL auto_increment,
+	certificate_name VARCHAR(30) default NULL,
+	idx INT default NULL,
+	employee_id INT default NULL,
+	PRIMARY KEY (id)
+);

@@ -21,3 +21,18 @@ create table CERTIFICATE_LIST (
 	employee_id INT default NULL,
 	PRIMARY KEY (id)
 );
+
+-- Asociaciones entre tablas
+
+-- Muchos a uno
+
+alter table employee add column address int not null;
+
+create table ADDRESS (
+	id INT NOT NULL auto_increment,
+	street_name VARCHAR(40) default NULL,
+	city_name VARCHAR(40) default NULL,
+	state_name VARCHAR(40) default NULL,
+	zipcode VARCHAR(10) default NULL,
+	PRIMARY KEY (id)
+);

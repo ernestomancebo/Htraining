@@ -4,25 +4,26 @@
   'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
 	<!-- EMPLOYEE Mapping -->
-	<class name="com.ernesto.Employee" table="EMPLOYEE">
+	<class name="com.ernesto.list.EmployeeL" table="EMPLOYEE">
 		<meta attribute="class-description">Contiene la descripcion de la tabla EMPLOYEE</meta>
 		<id column="id" name="id" type="int">
 			<generator class="native"/>
 		</id>
+		<list cascade="all" name="certificates">
+			<key column="employee_id"/>
+			<list-index column="idx"/>
+			<one-to-many class="com.ernesto.list.CertificateL"/>
+		</list>
 		<property column="first_name" name="firstName" type="string"/>
 		<property column="last_name" name="lastName" type="string"/>
 		<property column="salary" name="salary" type="int"/>
-		<many-to-one class="com.ernesto.many_to_one.Address" column="address" name="address" not-null="true"/>
 	</class>
-	<!-- ADDRESS Mapping -->
-	<class name="com.ernesto.many_to_one.Address" table="ADDRESS">
-		<meta attribute="class-description">Contenido de la descripcion de la tabla ADDRESS</meta>
+	<!-- CERTIFICATE LIST Mapping -->
+	<class name="com.ernesto.list.CertificateL" table="CERTIFICATE_LIST">
+		<meta attribute="class-description">Contenido de la descripcion de la tabla CERTIFICATE</meta>
 		<id column="id" name="id" type="int">
 			<generator class="native"/>
 		</id>
-		<property column="street" name="street" type="string"/>
-		<property column="city" name="city" type="string"/>
-		<property column="state" name="state" type="string"/>
-		<property column="zipcode" name="zipcode" type="string"/>
+		<property column="certificate_name" name="name" type="string"/>
 	</class>
 </hibernate-mapping>

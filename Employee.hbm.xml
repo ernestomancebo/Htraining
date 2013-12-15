@@ -4,7 +4,7 @@
   'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
 	<!-- EMPLOYEE Mapping -->
-	<class name="com.ernesto.Employee" table="EMPLOYEE">
+	<class name="com.ernesto.many_to_one.Employee" table="EMPLOYEE">
 		<meta attribute="class-description">Contiene la descripcion de la tabla EMPLOYEE</meta>
 		<id column="id" name="id" type="int">
 			<generator class="native"/>
@@ -20,9 +20,9 @@
 		<id column="id" name="id" type="int">
 			<generator class="native"/>
 		</id>
-		<property column="street" name="street" type="string"/>
-		<property column="city" name="city" type="string"/>
-		<property column="state" name="state" type="string"/>
+		<property column="street_name" name="street" type="string"/>
+		<property column="city_name" name="city" type="string"/>
+		<property column="state_name" name="state" type="string"/>
 		<property column="zipcode" name="zipcode" type="string"/>
 	</class>
 </hibernate-mapping>

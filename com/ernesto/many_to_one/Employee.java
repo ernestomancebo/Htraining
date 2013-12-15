@@ -1,5 +1,7 @@
 package com.ernesto.many_to_one;
 
+import com.ernesto.many_to_one.Address;
+
 public class Employee {
     private int id;
     private String firstName;
